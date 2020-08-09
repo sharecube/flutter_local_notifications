@@ -127,6 +127,9 @@ public class FlutterLocalNotificationsPlugin implements MethodCallHandler, Plugi
     }
 
     private static Notification createNotification(Context context, NotificationDetails notificationDetails) {
+
+        println("--------------------------------WORLD131---------------------------------------------------------");
+
         setupNotificationChannel(context, NotificationChannelDetails.fromNotificationDetails(notificationDetails));
         Intent intent = new Intent(context, getMainActivityClass(context));
         intent.setAction(SELECT_NOTIFICATION);
@@ -685,6 +688,9 @@ public class FlutterLocalNotificationsPlugin implements MethodCallHandler, Plugi
     }
 
     static void showNotification(Context context, NotificationDetails notificationDetails) {
+
+        println("--------------------------------WORLD692---------------------------------------------------------");
+
         Notification notification = createNotification(context, notificationDetails);
         NotificationManagerCompat notificationManagerCompat = getNotificationManager(context);
         notificationManagerCompat.notify(notificationDetails.id, notification);
@@ -824,6 +830,9 @@ public class FlutterLocalNotificationsPlugin implements MethodCallHandler, Plugi
         Map<String, Object> arguments = call.arguments();
         NotificationDetails notificationDetails = extractNotificationDetails(result, arguments);
         if (notificationDetails != null) {
+
+            println("--------------------------------WORLD834---------------------------------------------------------");
+
             showNotification(applicationContext, notificationDetails);
             result.success(null);
         }
